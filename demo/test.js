@@ -1,37 +1,38 @@
-var canvas = document.getElementById("canvas");
+/*var canvas = document.getElementById("canvas");
 var ctx=canvas.getContext('2d');
 var g=new jcanvas.Graphics();
-/*ctx.fillStyle = '#dddddd';
+ctx.fillStyle = '#dddddd';
 ctx.lineWidth=10;
 ctx.strokeStyle = '#0000ff';
 ctx.moveTo(0,0);
 ctx.lineTo(200,200);
-ctx.stroke();*/
+ctx.stroke();
 console.log(ctx);
 
 g.lineStyle(15, 0xffffff);
 g.moveTo(0,0);
 g.lineTo(200,200);
 g.endStroke();
-g.draw(ctx);
+g.draw(ctx);*/
 
-/*console.log(14);
 var canvas = document.getElementById("canvas");
-var stage=new Stage(canvas);
+var ctx=canvas.getContext('2d');
+//var stage=new Stage(canvas);
 
-var line=new Shape();
-stage.addChild(line);
+var line=new jcanvas.Shape();
+//stage.addChild(line);
 
 line.graphics.lineStyle(2, 0xffffff);
 line.graphics.moveTo(0, 0);
-line.graphics.lineTo(0, 117);
+line.graphics.lineTo(200, 200);
 line.graphics.endStroke();
 line.x = 172;
-line.y = 61;*/
+line.y = 61;
+line.graphics.draw(ctx);
+//stage.removeChild(line);
+//stage.draw();
 
-stage.draw();
-
-function Ball(radius,color){
+/*function Ball(radius,color){
 	if(radius===undefined){radius=40;}
 	if(color===undefined){color="#ff0000";}
 	this.x=0;
@@ -62,7 +63,7 @@ Ball.prototype.draw=function(context){
 		context.stroke();
 	}
 	context.restore();
-};
+};*/
 
 /*var canvas = document.getElementById('canvas'),
 width = canvas.width,
