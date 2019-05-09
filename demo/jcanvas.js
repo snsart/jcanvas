@@ -1,4 +1,4 @@
-this.jcanvas = this.jcanvas||{};
+var jcanvas=this.jcanvas = this.jcanvas||{};
 
 jcanvas.extend = function(subclass, superclass) {
 	"use strict";
@@ -13,12 +13,6 @@ function DisplayObject(){
 }
 
 
-(function(){
-	function Stage(canvas){
-		
-	}
-})()
-
 
  /**
  * 容器
@@ -28,6 +22,7 @@ function DisplayObject(){
 		this._childrens=[];
 	}
 	var p=Container.prototype;
+	
 	p.addChild=function(child){
 		this._childrens.push(child);
 	};
@@ -36,14 +31,31 @@ function DisplayObject(){
 		this._childrens.splice(this._childrens.indexOf(child),1);
 	};
 	
-	p.draw=function(){
+	p.draw=function(ctx){
 		var childrens=this._childrens;
 		for(var i=0;i<childrens.length;i++){
-			childrens[i].draw();
+			childrens[i].draw(ctx);
 		}
-	}
+	};
 	
 	this.jcanvas.Container=Container;
+})();
+
+
+(function(){
+	function Stage(canvas){
+		this.canvas=canvas;
+		this.ctx=canvas.getContext("2d");
+		this._childrens=[];
+	}
+	jcanvas.extend(Stage,jcanvas.Container);
+	
+	var p=Stage.prototype;
+	p.update=function(){
+		this.draw(this.ctx);
+	};
+	
+	this.jcanvas.Stage=Stage;
 })();
 
 
@@ -52,11 +64,14 @@ function DisplayObject(){
  */
 (function(){
 	function Shape(){
-		this._graphics=new jcanvas.Graphics();
+		this.graphics=new jcanvas.Graphics();
+		this.x=0;
+		this.y=0;
 	}
 	var p=Shape.prototype;
-	p.draw=function(){
-		this._graphics.draw(ctx);
+	p.draw=function(ctx){
+		ctx.translate(this.x,this.y);
+		this.graphics.draw(ctx);
 	}
 	this.jcanvas.Shape=Shape;
 })();

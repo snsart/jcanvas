@@ -17,20 +17,30 @@ g.draw(ctx);*/
 
 var canvas = document.getElementById("canvas");
 var ctx=canvas.getContext('2d');
-//var stage=new Stage(canvas);
+var stage=new jcanvas.Stage(canvas);
 
 var line=new jcanvas.Shape();
-//stage.addChild(line);
-
-line.graphics.lineStyle(2, 0xffffff);
+stage.addChild(line);
+line.graphics.lineStyle(10, 0xffffff);
 line.graphics.moveTo(0, 0);
 line.graphics.lineTo(200, 200);
 line.graphics.endStroke();
 line.x = 172;
-line.y = 61;
-line.graphics.draw(ctx);
+line.y = 200;
+
+var line2=new jcanvas.Shape();
+stage.addChild(line2);
+line2.graphics.lineStyle(10, 0xffffff);
+line2.graphics.moveTo(0, 0);
+line2.graphics.lineTo(200, 200);
+line2.graphics.endStroke();
+line2.x = 0;
+line2.y = 0;
+
+
+//line.graphics.draw(ctx);
 //stage.removeChild(line);
-//stage.draw();
+stage.update();
 
 /*function Ball(radius,color){
 	if(radius===undefined){radius=40;}
