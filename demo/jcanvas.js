@@ -70,8 +70,10 @@ function DisplayObject(){
 	}
 	var p=Shape.prototype;
 	p.draw=function(ctx){
+		ctx.save();
 		ctx.translate(this.x,this.y);
 		this.graphics.draw(ctx);
+		ctx.restore();
 	}
 	this.jcanvas.Shape=Shape;
 })();
@@ -120,7 +122,7 @@ function DisplayObject(){
 		this.thick=thick;
 		this.color=color;
 	})).prototype.exec=function(ctx){
-		ctx.fillStyle=this.color;
+		ctx.strokeStyle=this.color;
 		ctx.lineWidth=this.thick;
 	};
 	

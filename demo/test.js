@@ -21,7 +21,7 @@ var stage=new jcanvas.Stage(canvas);
 
 var line=new jcanvas.Shape();
 stage.addChild(line);
-line.graphics.lineStyle(10, 0xffffff);
+line.graphics.lineStyle(5, "#ff0000");
 line.graphics.moveTo(0, 0);
 line.graphics.lineTo(200, 200);
 line.graphics.endStroke();
@@ -30,12 +30,12 @@ line.y = 200;
 
 var line2=new jcanvas.Shape();
 stage.addChild(line2);
-line2.graphics.lineStyle(10, 0xffffff);
+line2.graphics.lineStyle(5, "#ff0000");
 line2.graphics.moveTo(0, 0);
 line2.graphics.lineTo(200, 200);
 line2.graphics.endStroke();
-line2.x = 0;
-line2.y = 0;
+line2.x = 20;
+line2.y = 100;
 
 
 //line.graphics.draw(ctx);
