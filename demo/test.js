@@ -37,6 +37,17 @@ line2.graphics.endStroke();
 line2.x = 20;
 line2.y = 100;
 
+var rect=new jcanvas.Shape();
+stage.addChild(rect);
+rect.graphics.fillStyle("#ff0000");
+rect.graphics.drawRect(10,10,200,500);
+
+var circle=new jcanvas.Shape();
+stage.addChild(circle);
+circle.graphics.fillStyle("#ff0000");
+circle.graphics.drawCircle(0,0,200);
+circle.x=200;
+circle.y=200;
 
 //line.graphics.draw(ctx);
 //stage.removeChild(line);
